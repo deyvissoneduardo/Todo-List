@@ -6,6 +6,7 @@ class DefaultTheme {
         primaryColor: const Color(0xff5C77CE),
         primaryColorLight: const Color(0xffABC8F7),
         backgroundColor: Colors.grey[100],
+        bottomAppBarColor: Colors.white38,
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             backgroundColor: const Color(0xff5C77CE),

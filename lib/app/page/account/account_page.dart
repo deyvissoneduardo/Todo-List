@@ -38,9 +38,9 @@ class AccountPage extends GetView<AccountController> {
                               label: 'Login',
                               keyboardType: TextInputType.emailAddress,
                             ),
-                            SizedBox(height: 10.0),
+                            SizedBox(height: 20.0),
                             FormFieldWidget(label: 'Senha'),
-                            SizedBox(height: 10),
+                            SizedBox(height: 20.0),
                             RowButtons()
                           ],
                         ),
