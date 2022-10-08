@@ -7,6 +7,7 @@ import 'package:todo_list/app_bindings.dart';
 
 void main() {
   runApp(GetMaterialApp(
+    showSemanticsDebugger: false,
     initialBinding: AppBindings(),
     theme: DefaultTheme.theme,
     initialRoute: AppRoutes.SPLASHPAGE,

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:todo_list/app/routes/app_routes.dart';
 
 class RowButtons extends StatelessWidget {
   const RowButtons({Key? key}) : super(key: key);
@@ -13,7 +15,7 @@ class RowButtons extends StatelessWidget {
           onPressed: () {},
         ),
         ElevatedButton(
-          onPressed: () {},
+          onPressed: () => Get.toNamed(AppRoutes.HOMEPAGE),
           style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
