@@ -11,7 +11,7 @@ class SplashPage extends GetView<SplashController> {
     return Scaffold(
       body: Container(
         width: MediaQuery.of(context).size.width,
-        color: Colors.grey[100],
+        color: context.theme.backgroundColor,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
