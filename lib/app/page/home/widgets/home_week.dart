@@ -1,15 +1,39 @@
+import 'package:date_picker_timeline/date_picker_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomeWeek extends StatelessWidget {
   const HomeWeek({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(''),
+    return Visibility(
+      visible: true,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(height: 20),
+          const Text(
+            'DIA DA SEMANA',
+            // style: context.theme,
+          ),
+          const SizedBox(height: 10),
+          SizedBox(
+              height: 95,
+              child: DatePicker(
+                DateTime.now(),
+                locale: 'pt_BR',
+                initialSelectedDate: DateTime.now(),
+                selectionColor: context.theme.primaryColor,
+                selectedTextColor: Colors.white,
+                daysCount: 7,
+                monthTextStyle: const TextStyle(fontSize: 8),
+                dayTextStyle: const TextStyle(fontSize: 13),
+                dateTextStyle: const TextStyle(fontSize: 13),
+                onDateChange: (date) {},
+              )),
+        ],
       ),
-      body: Container(),
     );
   }
 }
