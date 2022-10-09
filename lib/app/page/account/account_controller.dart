@@ -13,7 +13,7 @@ class AccountController extends GetxController {
   final GlobalKey<FormState> formLogin = GlobalKey<FormState>();
 
   //controller register
-  final GlobalKey<FormState> formRegister = GlobalKey<FormState>();
+
   TextEditingController registeremailController = TextEditingController();
   TextEditingController registerpasswordController = TextEditingController();
   TextEditingController registerpasswordConfirmController =
@@ -42,22 +42,16 @@ class AccountController extends GetxController {
   }
 
   Future<void> register() async {
-    final formValid = formRegister.currentState?.validate() ?? false;
-    if (formValid) {
-      final user = _userService.register(registeremailController.text.trim(),
-          registerpasswordConfirmController.text.trim());
-      if (user != null) {
-        debugPrint('************************');
-        debugPrint('$user');
-        Get.toNamed(AppRoutes.HOMEPAGE);
-        Get.snackbar('Sucesso', 'Voçe foi cadastrado.',
-            backgroundColor: Colors.green, colorText: Colors.white);
-      } else {
-        Get.snackbar('Error', 'Error ao cadastrar-se.',
-            backgroundColor: Colors.red, colorText: Colors.white);
-      }
+    final user = _userService.register(registeremailController.text.trim(),
+        registerpasswordConfirmController.text.trim());
+    if (user != null) {
+      debugPrint('************************');
+      debugPrint('$user');
+      Get.toNamed(AppRoutes.HOMEPAGE);
+      Get.snackbar('Sucesso', 'Cadastro realizado com sucesso.',
+          backgroundColor: Colors.green, colorText: Colors.white);
     } else {
-      Get.snackbar('Error', 'Error ao cadastrar-se.',
+      Get.snackbar('Error', 'Error ao cadastrar-se.1',
           backgroundColor: Colors.red, colorText: Colors.white);
     }
   }

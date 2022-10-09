@@ -17,7 +17,7 @@ class AppRoutes {
   static List<GetPage<Widget>> pages = [
     GetPage(
       name: AppRoutes.SPLASHPAGE,
-      transitionDuration: const Duration(seconds: 1),
+      transitionDuration: const Duration(microseconds: 500),
       transition: Transition.fade,
       curve: Curves.linear,
       page: () => const SplashPage(),
@@ -25,7 +25,7 @@ class AppRoutes {
     ),
     GetPage(
       name: AppRoutes.ACCOUNTPAGE,
-      transitionDuration: const Duration(seconds: 1),
+      transitionDuration: const Duration(microseconds: 500),
       transition: Transition.fade,
       curve: Curves.linear,
       page: () => const AccountPage(),
@@ -33,7 +33,7 @@ class AppRoutes {
     ),
     GetPage(
       name: AppRoutes.REGISTERPAGE,
-      transitionDuration: const Duration(seconds: 1),
+      transitionDuration: const Duration(microseconds: 500),
       transition: Transition.fade,
       curve: Curves.linear,
       page: () => const RegisterPage(),
@@ -41,7 +41,7 @@ class AppRoutes {
     ),
     GetPage(
       name: AppRoutes.HOMEPAGE,
-      transitionDuration: const Duration(seconds: 1),
+      transitionDuration: const Duration(microseconds: 500),
       transition: Transition.fade,
       curve: Curves.linear,
       page: () => const HomePage(),

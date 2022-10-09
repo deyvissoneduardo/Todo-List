@@ -9,7 +9,9 @@ class SplashController extends GetxController {
   }
 
   Future<void> load() async {
-    Future.delayed(const Duration(seconds: 10));
-    Get.offAllNamed(AppRoutes.ACCOUNTPAGE);
+    Future.delayed(
+      const Duration(seconds: 3),
+      () => Get.offAllNamed(AppRoutes.ACCOUNTPAGE),
+    );
   }
 }

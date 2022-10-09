@@ -30,18 +30,18 @@ class LoginFooter extends StatelessWidget {
                   TextButton(
                       onPressed: () => Get.toNamed(AppRoutes.REGISTERPAGE),
                       child: const Text('Cadastre-se')),
-                  SignInButton(
-                    Buttons.Google,
-                    text: 'Continue com o Google',
-                    padding: const EdgeInsets.all(5),
-                    shape: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                      borderSide: BorderSide.none,
-                    ),
-                    onPressed: () {},
-                  )
                 ],
               ),
+              SignInButton(
+                Buttons.Google,
+                text: 'Continue com o Google',
+                padding: const EdgeInsets.all(5),
+                shape: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  borderSide: BorderSide.none,
+                ),
+                onPressed: () {},
+              )
             ],
           ),
         ),

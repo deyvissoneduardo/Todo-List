@@ -8,6 +8,7 @@ class AppbarRegister extends PreferredSize {
           preferredSize: const Size(double.infinity, 56),
           child: AppBar(
             backgroundColor: context.theme.bottomAppBarColor,
+            elevation: 0,
             automaticallyImplyLeading: false,
             title: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

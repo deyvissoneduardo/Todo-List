@@ -5,21 +5,16 @@ import 'package:google_sign_in/google_sign_in.dart';
 import './i_user_repository.dart';
 
 class UserRepository implements IUserRepository {
-  final FirebaseAuth _firebaseAuth;
-
-  UserRepository({required FirebaseAuth firebaseAuth})
-      : _firebaseAuth = firebaseAuth;
-
   @override
   Future<User?> register(String email, String password) async {
+    FirebaseAuth auth = FirebaseAuth.instance;
     try {
-      final userCredential = await _firebaseAuth.createUserWithEmailAndPassword(
+      final userCredential = await auth.createUserWithEmailAndPassword(
           email: email, password: password);
       return userCredential.user;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {
-        final loginTypes =
-            await _firebaseAuth.fetchSignInMethodsForEmail(email);
+        final loginTypes = await auth.fetchSignInMethodsForEmail(email);
 
         if (loginTypes.contains('password')) {
           throw AuthException(message: 'E-mail ja cadastrado.');
@@ -34,8 +29,9 @@ class UserRepository implements IUserRepository {
 
   @override
   Future<User?> login(String email, String password) async {
+    FirebaseAuth auth = FirebaseAuth.instance;
     try {
-      final userCredential = await _firebaseAuth.signInWithEmailAndPassword(
+      final userCredential = await auth.signInWithEmailAndPassword(
           email: email, password: password);
       return userCredential.user;
     } on PlatformException catch (e) {
@@ -53,12 +49,12 @@ class UserRepository implements IUserRepository {
 
   @override
   Future<void> forgotPassword(String email) async {
+    FirebaseAuth auth = FirebaseAuth.instance;
     try {
-      final loginMethods =
-          await _firebaseAuth.fetchSignInMethodsForEmail(email);
+      final loginMethods = await auth.fetchSignInMethodsForEmail(email);
 
       if (loginMethods.contains('password')) {
-        await _firebaseAuth.sendPasswordResetEmail(email: email);
+        await auth.sendPasswordResetEmail(email: email);
       } else if (loginMethods.contains('google')) {
         throw AuthException(message: 'Cadastro realizado com Google');
       } else {
@@ -71,8 +67,9 @@ class UserRepository implements IUserRepository {
 
   @override
   Future<User?> logout() async {
+    FirebaseAuth auth = FirebaseAuth.instance;
     await GoogleSignIn().signOut();
-    _firebaseAuth.signOut();
+    auth.signOut();
     return null;
   }
 }
