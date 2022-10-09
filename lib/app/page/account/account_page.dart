@@ -4,6 +4,7 @@ import 'package:todo_list/app/page/account/widgets/login_footer.dart';
 import 'package:todo_list/app/page/account/widgets/row_buttons.dart';
 import 'package:todo_list/app/page/widgets/form_field_widget.dart';
 import 'package:todo_list/app/page/widgets/todo_list_logo.dart';
+import 'package:validatorless/validatorless.dart';
 import './account_controller.dart';
 
 class AccountPage extends GetView<AccountController> {
@@ -32,16 +33,30 @@ class AccountPage extends GetView<AccountController> {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 20.0, vertical: 20.0),
                       child: Form(
+                        key: controller.formLogin,
                         child: Column(
-                          children: const [
+                          children: [
                             FormFieldWidget(
                               label: 'Login',
+                              controller: controller.emailController,
                               keyboardType: TextInputType.emailAddress,
+                              validator: Validatorless.multiple([
+                                Validatorless.email('e-mail invalido.'),
+                                Validatorless.required('campo obrigatorio.'),
+                              ]),
                             ),
-                            SizedBox(height: 20.0),
-                            FormFieldWidget(label: 'Senha'),
-                            SizedBox(height: 20.0),
-                            RowButtons()
+                            const SizedBox(height: 20.0),
+                            FormFieldWidget(
+                              label: 'Senha',
+                              controller: controller.passwordController,
+                              obscureText: true,
+                              validator: Validatorless.multiple([
+                                Validatorless.required('Campo obrigatorio'),
+                                Validatorless.min(6, 'minimo 6 caracters'),
+                              ]),
+                            ),
+                            const SizedBox(height: 20.0),
+                            RowButtons(buttonLogin: () => controller.login)
                           ],
                         ),
                       ),

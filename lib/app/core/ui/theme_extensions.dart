@@ -6,6 +6,7 @@ extension ThemeExtensions on BuildContext {
   Color get buttonColor => Theme.of(this).primaryColor;
   Color get backgroundColor => Theme.of(this).backgroundColor;
   Color get bottomAppBarColor => Theme.of(this).bottomAppBarColor;
+  Color get errorColor => Theme.of(this).errorColor;
   TextTheme get textTheme => Theme.of(this).textTheme;
 
   TextStyle get titleStyle => const TextStyle(
